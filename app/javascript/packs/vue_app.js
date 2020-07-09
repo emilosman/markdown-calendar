@@ -4,6 +4,7 @@ import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
 import heatmapComponent from './components/heatmap-component'
+import markdownEditor from './components/markdown-editor'
 
 Vue.use(TurbolinksAdapter)
 
@@ -13,7 +14,8 @@ document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '#app',
     components: {
-      heatmapComponent
+      heatmapComponent,
+      markdownEditor
     }
   })
 })

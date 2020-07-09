@@ -13,7 +13,7 @@
 
   export default {
     name: 'heatmapComponent',
-    data: ()=> {
+    data() {
       return {
         endDate: Date.now()
       }
@@ -22,12 +22,11 @@
       dayClick: function(date) {
         let d = new Date(Date.parse(date.date));
         let dayUrl = `${ d.getMonth() + 1 }-${ d.getDate() }-${ d.getFullYear() }`
-        console.log(dayUrl)
         window.location.href = `/days/${dayUrl}`
       }
     },
     components: {
       CalendarHeatmap
-    },
+    }
   }
 </script>
