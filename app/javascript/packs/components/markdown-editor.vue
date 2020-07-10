@@ -38,6 +38,7 @@
       updateDay() {
         axios.patch(`/api${window.location.pathname}`, {
           text: this.day.text,
+          date: this.day.date
         })
         .then(response => (
           console.log(response)
