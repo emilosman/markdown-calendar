@@ -1,7 +1,5 @@
 <template>
   <div v-if="day">
-    <vue-markdown>{{day.text}}</vue-markdown>
-
     <div v-if="day.text && !showEditor" @click="toggleEditor()">
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
@@ -24,7 +22,7 @@
     data() {
       return {
         day: null,
-        showEditor: true,
+        showEditor: false,
       }
     },
     mounted() {
@@ -38,7 +36,12 @@
         this.showEditor = !this.showEditor;
       },
       updateDay() {
-        console.log('2')
+        axios.patch(`/api${window.location.pathname}`, {
+          text: this.day.text,
+        })
+        .then(response => (
+          console.log(response)
+        ))
       }
     },
     components: {
