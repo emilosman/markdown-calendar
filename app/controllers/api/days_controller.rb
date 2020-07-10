@@ -3,7 +3,7 @@ module Api
     before_action :find_day, only: [:show]
 
     def index
-      @days = Day.order(date: :desc)
+      @days = Day.with_text.order(date: :desc)
 
       render json: @days.to_json({methods: :value}), status: 200
     end
