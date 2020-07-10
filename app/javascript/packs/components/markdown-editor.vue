@@ -22,23 +22,21 @@
   import axios from 'axios'
 
   export default {
+    name: 'markdownEditor',
+    props: {
+      day: Object
+    },
     data() {
       return {
-        day: null,
         showEditor: false,
       }
-    },
-    mounted() {
-      axios.get(`/api${window.location.pathname}`).then((response) => {
-        this.day = response.data
-      })
     },
     methods: {
       toggleEditor() {
         this.showEditor = !this.showEditor;
       },
       updateDay() {
-        axios.patch(`/api${window.location.pathname}`, {
+        axios.patch(`/api/days/${this.day.id}`, {
           text: this.day.text,
           date: this.day.date
         })

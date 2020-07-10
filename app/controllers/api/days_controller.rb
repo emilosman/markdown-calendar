@@ -1,9 +1,9 @@
 module Api
   class DaysController < ApplicationController
-    before_action :find_day, except: [:index]
+    before_action :find_day, only: [:show]
 
     def index
-      @days = Day.all
+      @days = Day.order(date: :desc)
 
       render json: @days.to_json({methods: :value}), status: 200
     end
@@ -13,9 +13,12 @@ module Api
     end
 
     def update
+      @day = Day.find params[:id]
       @day.update_attributes(
         text: params[:text]
       )
+
+      render json: @day, status: 200
     end
 
     private

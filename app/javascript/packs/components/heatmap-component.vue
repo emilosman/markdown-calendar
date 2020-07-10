@@ -9,11 +9,16 @@
       tooltip-unit="points"
       @day-click="dayClick"
     ></calendar-heatmap>
+
+    <div v-for="day in days" :key="day.date">
+      <markdown-editor :day="day"></markdown-editor>
+    </div>
   </div>
 </template>
 
 <script>
   import { CalendarHeatmap } from 'vue-calendar-heatmap'
+  import markdownEditor from './markdown-editor'
   import axios from 'axios'
 
   export default {
@@ -38,7 +43,8 @@
       }
     },
     components: {
-      CalendarHeatmap
+      CalendarHeatmap,
+      markdownEditor
     }
   }
 </script>

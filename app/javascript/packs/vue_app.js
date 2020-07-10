@@ -5,6 +5,7 @@ import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
 import heatmapComponent from './components/heatmap-component'
 import markdownEditor from './components/markdown-editor'
+import showPage from './components/show-page'
 import MQ from 'vue-match-media/src'
 
 Vue.use(TurbolinksAdapter)
@@ -22,7 +23,8 @@ document.addEventListener('turbolinks:load', () => {
     },
     components: {
       heatmapComponent,
-      markdownEditor
+      markdownEditor,
+      showPage
     }
   })
 })
