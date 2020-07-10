@@ -8,7 +8,7 @@
     </div>
     <div v-else>
       <div class="input-group">
-        <textarea @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2" style="min-height: 250px;"></textarea>
+        <textarea @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
       </div>
       <div v-if="day.text" class="input-group" style="width: 169px;">
         <button @click="updateDay(day); toggleEditor()" class="btn btn-success form-control mb-4">Save</button>
