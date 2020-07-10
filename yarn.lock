@@ -7466,6 +7466,11 @@ vue-markdown@^2.2.4:
     markdown-it-task-lists "^2.0.1"
     markdown-it-toc-and-anchor "^4.1.2"
 
+vue-match-media@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vue-match-media/-/vue-match-media-1.0.3.tgz#d1c5111e33acc09684ff898429ca4fad8b4351c4"
+  integrity sha512-LVALG6n+uMJnSdackzykTKxiqL+YgmD+c8HeyC7NsYijOIbOfx5cKhP3F0+r6Gu18q4uv2pr4KAoXKeQQQQQ5w==
+
 vue-resize@^0.4.5:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-0.4.5.tgz#4777a23042e3c05620d9cbda01c0b3cc5e32dcea"

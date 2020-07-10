@@ -4,6 +4,8 @@
       :end-date="endDate"
       :values="days"
       :tooltip="true"
+      :vertical="$mq.phone"
+      :max="20"
       tooltip-unit="points"
       @day-click="dayClick"
     ></calendar-heatmap>
@@ -19,13 +21,13 @@
     data() {
       return {
         days: null,
-        endDate: Date.now()
+        endDate: Date.now(),
+        vertical: false
       }
     },
     mounted() {
       axios.get(`/api/days`).then((response) => {
         this.days = response.data
-        console.log(this.days)
       })
     },
     methods: {

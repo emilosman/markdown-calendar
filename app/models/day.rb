@@ -1,5 +1,5 @@
 class Day < ApplicationRecord
   def value
-    5
+    2
   end
 end

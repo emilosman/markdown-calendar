@@ -8,10 +8,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'vue_app' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
   </head>
 
   <body>
     <div class="container-fluid" id="app">
+      <%= link_to root_path do %>
+        <h2>Markdown is the only thing I care about</h2>
+      <% end %>
       <%= yield %>
     </div>
   </body>

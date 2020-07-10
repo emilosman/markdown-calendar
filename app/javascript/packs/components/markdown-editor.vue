@@ -1,5 +1,8 @@
 <template>
   <div v-if="day">
+    <h1>
+      {{day.date}}
+    </h1>
     <div v-if="day.text && !showEditor" @click="toggleEditor()">
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
@@ -28,7 +31,6 @@
     mounted() {
       axios.get(`/api${window.location.pathname}`).then((response) => {
         this.day = response.data
-        console.log(this.day)
       })
     },
     methods: {
