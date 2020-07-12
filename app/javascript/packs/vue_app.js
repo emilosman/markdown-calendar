@@ -7,9 +7,12 @@ import heatmapComponent from './components/heatmap-component'
 import markdownEditor from './components/markdown-editor'
 import showPage from './components/show-page'
 import MQ from 'vue-match-media/src'
+import VueSignaturePad from 'vue-signature-pad';
+ 
 
 Vue.use(TurbolinksAdapter)
 Vue.use(MQ)
+Vue.use(VueSignaturePad);
 
 document.addEventListener('turbolinks:load', () => {
   axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');

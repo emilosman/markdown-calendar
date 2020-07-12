@@ -8,6 +8,7 @@
     "@rails/webpacker": "4.2.2",
     "axios": "^0.19.2",
     "babel-runtime": "^6.26.0",
+    "signature_pad": "^3.0.0-beta.3",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
     "vue-calendar-heatmap": "^0.8.4",
@@ -15,6 +16,7 @@
     "vue-markdown": "^2.2.4",
     "vue-match-media": "^1.0.3",
     "vue-router": "^3.3.4",
+    "vue-signature-pad": "^2.0.2",
     "vue-template-compiler": "^2.6.11",
     "vue-turbolinks": "^2.1.0"
   },

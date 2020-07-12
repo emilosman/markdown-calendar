@@ -8,7 +8,7 @@
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
     <div v-else>
-      <canvas-draw class="mb-2" :day="day" v-if="this.day.image_url"></canvas-draw>
+      <signature-pad class="mb-2" :day="day" v-if="this.day.image_url"/>
       <div class="input-group">
         <textarea ref="textareaInput" @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
       </div>
@@ -24,7 +24,7 @@
   import VueMarkdown from 'vue-markdown'
   import axios from 'axios'
 
-  import canvasDraw from './canvas-draw';
+  import signaturePad from './signature-pad';
 
   export default {
     name: 'markdownEditor',
@@ -61,7 +61,7 @@
     },
     components: {
       VueMarkdown,
-      canvasDraw
+      signaturePad
     }
   }
 </script>
