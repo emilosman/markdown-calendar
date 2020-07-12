@@ -3,13 +3,12 @@
     <h1>
       {{day.date}}
     </h1>
-
-    <!--canvas-draw></canvas-draw-->
-
     <div v-if="day.text && !showEditor" @click="toggleEditor()">
+      <img :src="day.image_url"/>
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
     <div v-else>
+      <canvas-draw :day="day"></canvas-draw>
       <div class="input-group">
         <textarea ref="textareaInput" @blur="updateDay(day); toggleEditor()" @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
       </div>

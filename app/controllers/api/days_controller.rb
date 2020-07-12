@@ -1,22 +1,39 @@
 module Api
   class DaysController < ApplicationController
+    require 'open-uri'
+
     before_action :find_day, only: [:show]
 
     def index
       @days = Day.with_text.order(date: :desc)
 
-      render json: @days.to_json({methods: :value}), status: 200
+      render json: @days.to_json({ methods: [:value, :image_url] }), status: 200
     end
 
     def show
-      render json: @day, status: 200
+      render json: @day.to_json({ methods: [:value, :image_url] }), status: 200
     end
 
     def update
       @day = Day.find params[:id]
+
+      if params[:image]
+        data = params[:image]
+        png = Base64.decode64(data.remove('data:image/png;base64,'))
+        file = Tempfile.new
+        file.binmode
+        file.write(png)
+        file.rewind
+        @day.image.attach(io: file, filename:'upload.png')
+        file.close
+        file.unlink
+        @day.save!
+      end
+
+      
       @day.update_attributes(
         text: params[:text]
-      )
+      ) if params[:text].present?
 
       render json: @day, status: 200
     end
