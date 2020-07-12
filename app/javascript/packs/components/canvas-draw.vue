@@ -14,9 +14,6 @@
       <li id="tool-color-palette" @click="showColorPalette()">
         <img src="/icons/color-palette.svg"/>
       </li>
-      <li id="tool-download" @click="saveImage()">
-        <img src="/icons/download.svg"/>
-      </li>
     </ul>
   </div>
 </template>

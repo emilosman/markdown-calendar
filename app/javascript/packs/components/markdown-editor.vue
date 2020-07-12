@@ -8,13 +8,13 @@
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
     <div v-else>
-      <button class="btn btn-light" v-if="!this.day.image_url" @click="openCanvas()">Draw</button>
-      <canvas-draw :day="day" v-if="this.day.image_url"></canvas-draw>
+      <canvas-draw class="mb-2" :day="day" v-if="this.day.image_url"></canvas-draw>
       <div class="input-group">
         <textarea ref="textareaInput" @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
       </div>
-      <div class="input-group" style="width: 169px;">
-        <button @click="updateDay(day); toggleEditor()" class="btn btn-success form-control mb-4">Save</button>
+      <div class="input-group mb-4" style="width: 169px;">
+        <button @click="updateDay(day); toggleEditor()" class="btn btn-success form-control mr-2">Save</button>
+        <button class="btn btn-light" v-if="!this.day.image_url" @click="openCanvas()">✏️</button>
       </div>
     </div>
   </div>
