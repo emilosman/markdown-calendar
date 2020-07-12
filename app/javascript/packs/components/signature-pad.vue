@@ -5,6 +5,7 @@
       height="500px"
       ref="signaturePad"
       class="border"
+      dotSize="1"
       :options="{ onEnd }"
       :images="[this.day.image_url]"
     />
