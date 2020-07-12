@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  default_url_options :host => "localhost:4000"
+  default_url_options :only_path => true
 
   namespace :api do
     resources :days

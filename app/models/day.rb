@@ -10,6 +10,6 @@ class Day < ApplicationRecord
   end
 
   def image_url
-    url_for image if image.present?
+    rails_blob_path(image, disposition: 'attachment') if image.present?
   end
 end
