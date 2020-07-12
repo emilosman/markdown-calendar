@@ -3,6 +3,9 @@
     <h1>
       {{day.date}}
     </h1>
+
+    <!--canvas-draw></canvas-draw-->
+
     <div v-if="day.text && !showEditor" @click="toggleEditor()">
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
@@ -10,7 +13,7 @@
       <div class="input-group">
         <textarea ref="textareaInput" @blur="updateDay(day); toggleEditor()" @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
       </div>
-      <div v-if="day.text" class="input-group" style="width: 169px;">
+      <div class="input-group" style="width: 169px;">
         <button @click="updateDay(day); toggleEditor()" class="btn btn-success form-control mb-4">Save</button>
       </div>
     </div>
@@ -20,6 +23,8 @@
 <script>
   import VueMarkdown from 'vue-markdown'
   import axios from 'axios'
+
+  import canvasDraw from './canvas-draw';
 
   export default {
     name: 'markdownEditor',
@@ -52,7 +57,8 @@
       }
     },
     components: {
-      VueMarkdown
+      VueMarkdown,
+      canvasDraw
     }
   }
 </script>
