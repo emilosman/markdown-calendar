@@ -8,7 +8,7 @@
     </div>
     <div v-else>
       <div class="input-group">
-        <textarea @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
+        <textarea ref="textareaInput" @blur="updateDay(day); toggleEditor()" @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
       </div>
       <div v-if="day.text" class="input-group" style="width: 169px;">
         <button @click="updateDay(day); toggleEditor()" class="btn btn-success form-control mb-4">Save</button>
@@ -34,6 +34,12 @@
     methods: {
       toggleEditor() {
         this.showEditor = !this.showEditor;
+
+        if (this.showEditor) {
+          setTimeout(() => {
+            this.$refs.textareaInput.focus()
+          }, 250)
+        }
       },
       updateDay() {
         axios.patch(`/api/days/${this.day.id}`, {
