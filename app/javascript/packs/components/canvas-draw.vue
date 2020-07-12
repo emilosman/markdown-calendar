@@ -30,7 +30,7 @@
       day: Object,
       brushSize: {
         type: Number,
-        default: 2,
+        default: 1,
       },
       width: {
         type: Number,
@@ -81,6 +81,12 @@
         this.canvasContext.strokeStyle = this.tools[this.selectedToolIdx].color;
 
         this.cursorContext = this.$refs.cursor.getContext('2d');
+
+        var img = new Image();
+        img.src = this.day.image_url
+        img.onload = setTimeout(() => { 
+          this.canvasContext.drawImage(img, 0, 0);
+        }, 500)
       },
       bindEvents() {
         this.$refs.canvas.addEventListener('mousedown', (event) => {

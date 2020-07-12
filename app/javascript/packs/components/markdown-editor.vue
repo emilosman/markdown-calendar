@@ -8,9 +8,10 @@
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
     <div v-else>
-      <canvas-draw :day="day"></canvas-draw>
+      <button class="btn btn-light" v-if="!this.day.image_url" @click="openCanvas()">Draw</button>
+      <canvas-draw :day="day" v-if="this.day.image_url"></canvas-draw>
       <div class="input-group">
-        <textarea ref="textareaInput" @blur="updateDay(day); toggleEditor()" @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
+        <textarea ref="textareaInput" @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
       </div>
       <div class="input-group" style="width: 169px;">
         <button @click="updateDay(day); toggleEditor()" class="btn btn-success form-control mb-4">Save</button>
@@ -53,6 +54,9 @@
         .then(response => (
           console.log(response)
         ))
+      },
+      openCanvas() {
+        this.day.image_url = " "
       }
     },
     components: {
