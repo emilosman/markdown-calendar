@@ -4,7 +4,7 @@
       {{day.date}}
     </h1>
     <div v-if="day.text && !showEditor" @click="toggleEditor()">
-      <img :src="day.image_url"/>
+      <img :src="day.image_url" v-if="day.image_url"/>
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
     <div v-else>
