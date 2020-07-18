@@ -38,6 +38,13 @@ module Api
       render json: @day, status: 200
     end
 
+    def commit
+      Day.with_text.each do |day|
+        File.write("./export/#{day.date}.md", day.text)
+      end
+      system "cd export && git add . && git status && git commit -m 'update' && git push upstream master"
+    end
+
     private
     def find_day
       parsed_date = Date.strptime(params[:id], "%m-%d-%Y")

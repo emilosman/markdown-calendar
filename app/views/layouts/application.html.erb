@@ -14,9 +14,13 @@
 
   <body>
     <div class="container-fluid" id="app">
-      <%= link_to root_path do %>
-        <%= image_tag "markdown.png", class:"markdown-title" %>
-      <% end %>
+      <h1>
+        <%= link_to root_path do %>
+          <%= image_tag "markdown.png", class:"markdown-title" %>
+        <% end %>
+        <%= link_to 'push', commit_api_days_path, method: :post, remote: true, class:'btn btn-primary mt-2 float-right' %>
+      </h1>
+
       <%= yield %>
     </div>
   </body>
