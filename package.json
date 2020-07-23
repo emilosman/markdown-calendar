@@ -8,6 +8,7 @@
     "@rails/webpacker": "4.2.2",
     "axios": "^0.19.2",
     "babel-runtime": "^6.26.0",
+    "debounce": "^1.2.0",
     "signature_pad": "^3.0.0-beta.3",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
