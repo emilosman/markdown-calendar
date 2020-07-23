@@ -49,7 +49,8 @@
         window.location.href = `/days/${dayUrl}`
       },
       searchItems: function(){
-        axios.get(`/api/days?search=${this.searchBar}`).then((response) => {
+        let search =  this.searchBar || "_"
+        axios.get(`/api/days?search=${search}`).then((response) => {
           this.days = response.data
         })
       }
