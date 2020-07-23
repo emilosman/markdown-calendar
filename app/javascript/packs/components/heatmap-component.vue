@@ -7,9 +7,13 @@
       :max="20"
       tooltip-unit="points"
       @day-click="dayClick"
+      class="mb-4"
     ></calendar-heatmap>
 
-    <input v-model="searchBar" v-on:keyup="searchItems()" type="text"/>
+
+    <div class="input-group mb-4">
+      <input v-model="searchBar" v-on:keyup="searchItems()" type="text" class="form-control" placeholder="Search"/>
+    </div>
 
     <div v-for="day in days" :key="day.date">
       <markdown-editor :day="day"></markdown-editor>
