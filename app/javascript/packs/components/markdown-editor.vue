@@ -4,17 +4,14 @@
       {{day.date}}
     </h1>
     <div v-if="day.text && !showEditor" @click="toggleEditor()">
-      <img :src="day.image_url" v-if="day.image_url"/>
       <vue-markdown>{{day.text}}</vue-markdown>
     </div>
     <div v-else>
-      <signature-pad class="mb-2" :day="day" v-if="this.day.image_url"/>
       <div class="input-group">
         <textarea ref="textareaInput" @change="updateDay(day); toggleEditor()" v-model="day.text" class="form-control mb-2"></textarea>
       </div>
       <div class="input-group mb-4" style="width: 169px;">
         <button @click="updateDay(day); toggleEditor()" class="btn btn-success form-control mr-2">Save</button>
-        <button class="btn btn-light" v-if="!this.day.image_url" @click="openCanvas()">✏️</button>
       </div>
     </div>
   </div>
@@ -55,9 +52,6 @@
           console.log(response)
         ))
       },
-      openCanvas() {
-        this.day.image_url = " "
-      }
     },
     components: {
       VueMarkdown,
