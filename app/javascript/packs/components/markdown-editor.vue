@@ -3,8 +3,8 @@
     <h1>
       {{day.date}}
     </h1>
-    <div v-if="day.text && !showEditor" @click="toggleEditor()">
-      <vue-markdown>{{day.text}}</vue-markdown>
+    <div v-if="highlightedText && !showEditor" @click="toggleEditor()">
+      <vue-markdown ref="viewMarkdown">{{highlightedText}}</vue-markdown>
     </div>
     <div v-else>
       <div class="input-group">
@@ -26,11 +26,17 @@
   export default {
     name: 'markdownEditor',
     props: {
-      day: Object
+      day: Object,
+      search: String
     },
     data() {
       return {
         showEditor: false,
+      }
+    },
+    computed: {
+      highlightedText() {
+        return this.day.text.replace(this.search, `<mark>${this.search}</mark>`)
       }
     },
     methods: {

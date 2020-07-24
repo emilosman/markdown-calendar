@@ -6,7 +6,7 @@ module Api
 
     def index
       search = params[:search] || '_'
-      @days = Day.with_text.where( 'LOWER(text) LIKE ?', "%" + search + "%" ).order(date: :desc)
+      @days = Day.with_text.where( 'LOWER(text) LIKE ?', "%" + search.downcase + "%" ).order(date: :desc)
 
       render json: @days.to_json({ methods: [:value, :image_url] }), status: 200
     end

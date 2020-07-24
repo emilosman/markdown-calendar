@@ -16,7 +16,7 @@
     </div>
 
     <div v-for="day in days" :key="day.date">
-      <markdown-editor :day="day"></markdown-editor>
+      <markdown-editor :day="day" :search="searchBar"></markdown-editor>
     </div>
   </div>
 </template>
