@@ -36,7 +36,9 @@
     },
     computed: {
       highlightedText() {
-        return this.day.text.replace(this.search, `<mark>${this.search}</mark>`)
+        if (this.day.text) {
+          return this.day.text.replace(this.search, `<mark>${this.search}</mark>`)
+        }
       }
     },
     methods: {
