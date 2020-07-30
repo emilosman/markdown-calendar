@@ -36,8 +36,13 @@
     },
     computed: {
       highlightedText() {
-        if (this.day.text) {
-          return this.day.text.replace(this.search, `<mark>${this.search}</mark>`)
+        if (this.day.text && this.search) {
+          return this.day.text.replace(
+            new RegExp( '(' + this.search + ')', 'gi'),
+            `<mark>${this.search}</mark>`
+          )
+        } else {
+          return this.day.text
         }
       }
     },
