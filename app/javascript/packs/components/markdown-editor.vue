@@ -4,7 +4,7 @@
       {{day.date}}
     </h1>
     <div v-if="highlightedText && !showEditor" @click="toggleEditor()">
-      <vue-markdown ref="viewMarkdown">{{highlightedText}}</vue-markdown>
+      <vue-markdown :key="highlightedText" ref="viewMarkdown">{{highlightedText}}</vue-markdown>
     </div>
     <div v-else>
       <div class="input-group">
