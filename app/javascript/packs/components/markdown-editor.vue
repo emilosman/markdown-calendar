@@ -21,8 +21,6 @@
   import VueMarkdown from 'vue-markdown'
   import axios from 'axios'
 
-  import signaturePad from './signature-pad';
-
   export default {
     name: 'markdownEditor',
     props: {
@@ -68,7 +66,6 @@
     },
     components: {
       VueMarkdown,
-      signaturePad
     }
   }
 </script>
