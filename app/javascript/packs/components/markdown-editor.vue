@@ -1,7 +1,9 @@
 <template>
   <div v-if="day">
     <h1>
-      {{day.date}}
+      <a :href="dayUrl">
+        {{day.date}}
+      </a>
     </h1>
     <div v-if="highlightedText && !showEditor" @click="toggleEditor()">
       <vue-markdown :key="highlightedText" ref="viewMarkdown">{{highlightedText}}</vue-markdown>
@@ -42,6 +44,11 @@
         } else {
           return this.day.text
         }
+      },
+      dayUrl() {
+        let d = new Date(Date.parse(this.day.date));
+        let dayUrl = `${ d.getMonth() + 1 }-${ d.getDate() }-${ d.getFullYear() }`
+        return "days/" + dayUrl
       }
     },
     methods: {
